@@ -27,7 +27,7 @@ int main() {
     clientSocket = accept(serverSocket, (sockaddr*)&clientAddr, &size);
 
     cout << "Клієнт підключився\n";
-    ofstream file("received.rtf", ios::binary);
+    ofstream file("received.bat", ios::binary);
     //4096 для суцільної передачі
     const int FRAGMENT_SIZE = 512;
     char buffer[FRAGMENT_SIZE];
@@ -36,7 +36,7 @@ int main() {
         file.write(buffer, bytes);
         cout << "Отримано: " << bytes << " байт\n";
     }
-    cout << "Файл отримано\n";
+    cout << "Файл received.bat отримано\n";
     file.close();
     closesocket(clientSocket);
     closesocket(serverSocket);
